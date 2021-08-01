@@ -1,0 +1,46 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'rwa.css' %}">
+
+<html>
+    <nav class="menu" style="padding: 0px 12px">
+        <span><a href="/">Home</a></span>
+        &nbsp
+        <span style="border-left:1px solid #FFF;height:100%; margin: 6px"></span>
+        &nbsp
+        <span><a href="/signup">Sign Up</a></span>
+        &nbsp
+        <span style="border-left:1px solid #FFF;height:100%; margin: 6px"></span>
+        &nbsp
+        <span><a href="/login">Login</a></span>
+        &nbsp
+        <span style="border-left:1px solid #FFF;height:100%; margin: 6px"></span>
+        &nbsp
+        <span><a href="/logout">Logout</a></span>
+        &nbsp
+        {% if request.user.is_authenticated %}
+            <span style="border-left:1px solid #FFF;height:100%; margin: 6px"></span>
+            &nbsp
+            <span><a href="/spend-over-time">Spend Over Time</a></span>
+            &nbsp
+            <span style="border-left:1px solid #FFF;height:100%; margin: 6px"></span>
+            &nbsp
+            <span><a href="/spend-by-category">Spend by Category</a></span>
+            &nbsp
+            <span style="border-left:1px solid #FFF;height:100%; margin: 6px"></span>
+            &nbsp
+            <span><a href="/data-table">Data Table</a></span>
+            &nbsp
+            <span style="border-left:1px solid #FFF;height:100%; margin: 6px"></span>
+            &nbsp
+            <span><a href="/upload">Upload Files</a></span>
+            &nbsp
+            <span style="border-left:1px solid #FFF;height:100%; margin: 6px"></span>
+            &nbsp
+        {% endif %}
+    </nav>
+    <body>
+        <div style="padding: 24px">
+        {% block content %}{% endblock content %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Customer Engagement Over Time</h2>
+
+<div style="max-width: 800px">
+    <p>
+        First analyze the data and examine the first question:
+
+        <blockquote>How does customer engagement change over time?</blockquote>
+
+        Below chart shows overall purchases across all all households by month.
+    </p>
+</div>
+
+<h4>Line Chart Total Monthly Sales</h4>
+
+<div style="max-width: 80%">
+    {% include "line_chart.html" with props=all_data_props only %}
+</div>
+
+<div style="max-width: 800px">
+    <p>
+        Monthly purchases remained average but increase in monthly sales during
+        March 2020. March 2020 also happens to be the month when the COVID-19
+        pandemic hit the whole country and the entire world, resulting in frenzy
+        sales of items. However, subsequent months reflect restoring back to
+        normal sales.
+    </p>
+</div>
+
+<h4>Line Chart Total Monthly Expense By Specific Households</h4>
+
+<div style="max-width: 80%">
+    {% include "line_chart.html" with props=per_house_props %}
+</div>
+
+<div style="max-width: 800px">
+
+    <p>
+
+        Sales pattern remains steady for specific households and we can dive
+        into more individual households for further data and analysis here.
+        There is similar spike pattern around March 2020 for individual
+        households as well.
+
+    </p>
+
+</div>
+
+{% endblock %}

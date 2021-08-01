@@ -1,0 +1,70 @@
+{% comment %}
+
+Basic bar graph
+
+Example usage:
+  render(request, 'bar_graph', {'props': {
+      'title': 'City Expenses 2020',
+
+      'xLabel': 'Month',
+      'yLabel': 'Expenses ($)',
+
+      'labels': ['Power', 'Water'],
+
+      'datasets': [
+          {
+              data: [100, 200], // Power, water
+              label: 'Kentucky',
+              backgroundColor: '#606060',
+          }, {
+              data: [500, 200], // Power, water
+              label: 'Illinois',
+              backgroundColor: '#404040',
+          }
+      ],
+  }})
+
+{% endcomment %}
+
+{% block content %}
+  <div id="{{ props.id|safe }}-container">
+    <canvas id="{{ props.id|safe }}"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+   var props = {{ props|safe }}
+   var config = {
+      type: 'bar',
+      data: {
+        datasets: props.datasets || [],
+        labels: props.labels || [],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: props.xLabel || '',
+            },
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: props.yLabel || '',
+            },
+            ticks: {
+              beginAtZero: true
+            },
+          }],
+        },
+      }
+    };
+
+   var ctx = document.getElementById('{{ props.id|safe }}').getContext('2d');
+   window['{{props.id|safe}}'] = new Chart(ctx, config);
+
+  </script>
+
+{% endblock %}

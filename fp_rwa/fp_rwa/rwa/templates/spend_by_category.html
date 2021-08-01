@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Customer Engagement by Demographic</h2>
+
+<div style="max-width: 800px">
+    <p>
+
+        Analyze customer engagement across different types of commodities.
+        Overall purchase amounts per household across each commodity.
+    </p>
+</div>
+
+<h4>Spend Category by Household</h4>
+
+<div style="max-width: 80%">
+    {% include "bar_graph.html" with props=commodity_props only %}
+</div>
+
+<div style="max-width: 800px">
+    <p>
+
+        Most of our sales are in grocery staples, such as breads and pasta.
+        This is more common. Next levels as seen here are for produce, dairy,
+        frozen foods, and household items. This chart shows a general spend
+        trend and enables analysis.
+
+    </p>
+
+</div>
+
+<h4> Household Spend by Income Range</h4>
+
+<div style="max-width: 80%">
+    {% include "bar_graph.html" with props=income_props only %}
+</div>
+
+<div style="max-width: 800px">
+    <p>
+
+        This chart analyzes amount spent per household split for each
+        income range that is available from the database table.
+        The spend pattern changes nearly the same way for all income ranges.
+        However, the spend amounts certainly varies for income range i.e.
+        increases for higher income group and lower spend for low income
+        group. Now, this is not consistent for every category and needs
+        further analysis.
+
+    </p>
+
+</div>
+
+{% endblock %}
