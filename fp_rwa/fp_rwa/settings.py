@@ -77,22 +77,38 @@ WSGI_APPLICATION = 'fp_rwa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+# Using SQLite DB for efficiency and no cost
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '{MYNAME}',
-        'USER': '{MYUSER}',
-        'PASSWORD': '{MYPASSWORD}',
-        'HOST': '{MYDB}.postgres.database.azure.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+# Tried using PostgreSQL but too expensive to run even 2cores!
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': '{MYNAME}',
+#         'USER': '{MYUSER}',
+#         'PASSWORD': '{MYPASSWORD}',
+#         'HOST': '{MYDB}.postgres.database.azure.com',
+#         'PORT': '5432',
+#     }
+# }
+# Tried using low cost $4.99/month instance but way too slow for loading data!!!
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'rwadb',
+#         'HOST': 'rwadb.database.windows.net',
+#         'USER': 'rwauser',
+#         'PASSWORD': 'samtest1!',
+# 
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#         }
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
