@@ -99,10 +99,10 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'rwadb',
-#         'HOST': 'rwadb.database.windows.net',
-#         'USER': 'rwauser',
-#         'PASSWORD': 'samtest1!',
+#         'NAME': '{MYNAME}',
+#         'HOST': '{MYHOST}.database.windows.net',
+#         'USER': '{MYUSER}',
+#         'PASSWORD': '{MYPASSWORD}',
 # 
 #         'OPTIONS': {
 #             'driver': 'ODBC Driver 17 for SQL Server',
