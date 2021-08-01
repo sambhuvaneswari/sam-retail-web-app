@@ -1,0 +1,5 @@
+Django==3.0.10
+pyodbc>=4.0
+django-mssql-backend==2.8.1
+django-tables2==2.3.4
+django-bulk-update-or-create==0.2.0
